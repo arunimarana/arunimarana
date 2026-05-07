@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-api-service
+  labels:
+    app: hello-api
+spec:
+  type: NodePort
+  selector:
+    app: hello-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+      nodePort: 30080   # Access via http://localhost:30080 (minikube: use minikube ip)
